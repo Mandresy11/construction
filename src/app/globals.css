@@ -1,26 +1,89 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --cream: #f1efe6;
+  --ink: #14140f;
+  --blue: #1652f0;
+  --red: #e2372a;
+  --concrete: #9a9a94;
+  --sand: #e6ddc6;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-cream: var(--cream);
+  --color-ink: var(--ink);
+  --color-blue: var(--blue);
+  --color-red: var(--red);
+  --color-concrete: var(--concrete);
+  --color-sand: var(--sand);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-body);
+  --font-body: var(--font-body);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body), Arial, Helvetica, sans-serif;
+}
+
+.font-display {
+  font-family: var(--font-body), sans-serif;
+  font-weight: 800;
+}
+
+.rail-text {
+  writing-mode: vertical-rl;
+}
+
+@keyframes ring-pulse {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.ring-pulse {
+  animation: ring-pulse 2.4s ease-in-out infinite;
+}
+
+.step-dash {
+  background-image: repeating-linear-gradient(
+    90deg,
+    rgb(226 55 42 / 0.45) 0 6px,
+    transparent 6px 12px
+  );
+  animation: step-dash-flow 1.1s linear infinite;
+}
+
+@keyframes step-dash-flow {
+  to {
+    background-position-x: 12px;
+  }
+}
+
+.step-dash-v {
+  background-image: repeating-linear-gradient(
+    180deg,
+    rgb(226 55 42 / 0.45) 0 6px,
+    transparent 6px 12px
+  );
+  animation: step-dash-flow-v 1.1s linear infinite;
+}
+
+@keyframes step-dash-flow-v {
+  to {
+    background-position-y: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ring-pulse,
+  .step-dash,
+  .step-dash-v {
+    animation: none;
+  }
 }
