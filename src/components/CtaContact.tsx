@@ -1,40 +1,5 @@
 import { Reveal } from "./motion/Reveal";
-
-function PhoneIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M5 4h4l1.5 4.5L8 10a13 13 0 006 6l1.5-2.5L20 15v4a1.5 1.5 0 01-1.6 1.5C10 20 4 14 3.5 5.6A1.5 1.5 0 015 4Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-    </svg>
-  );
-}
-
-function MailIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <rect x="3.5" y="5.5" width="17" height="13" rx="1.5" stroke="currentColor" strokeWidth="1.8" />
-      <path d="M4 6.5L12 13L20 6.5" stroke="currentColor" strokeWidth="1.8" strokeLinejoin="round" />
-    </svg>
-  );
-}
-
-function PinIcon({ className }: { className?: string }) {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden="true">
-      <path
-        d="M12 21.5S19 14.6 19 9.5A7 7 0 105 9.5C5 14.6 12 21.5 12 21.5Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinejoin="round"
-      />
-      <circle cx="12" cy="9.5" r="2.5" stroke="currentColor" strokeWidth="1.8" />
-    </svg>
-  );
-}
+import { Icon } from "./icons/Iconify";
 
 const CONTACT_CARD =
   "group flex items-center gap-4 rounded-2xl border border-cream/20 bg-ink/15 p-4 backdrop-blur-sm lg:p-5";
@@ -105,7 +70,7 @@ export function CtaContact() {
             className={`${CONTACT_CARD} transition-colors duration-300 hover:border-cream/45 hover:bg-ink/25`}
           >
             <span className={CONTACT_ICON}>
-              <PhoneIcon className="h-5 w-5" />
+              <Icon icon="lucide:phone" className="h-5 w-5" />
             </span>
             <span>
               <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">
@@ -122,7 +87,7 @@ export function CtaContact() {
             className={`${CONTACT_CARD} transition-colors duration-300 hover:border-cream/45 hover:bg-ink/25`}
           >
             <span className={CONTACT_ICON}>
-              <MailIcon className="h-5 w-5" />
+              <Icon icon="lucide:mail" className="h-5 w-5" />
             </span>
             <span className="min-w-0">
               <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">
@@ -136,7 +101,7 @@ export function CtaContact() {
 
           <div className={CONTACT_CARD}>
             <span className={CONTACT_ICON}>
-              <PinIcon className="h-5 w-5" />
+              <Icon icon="lucide:map-pin" className="h-5 w-5" />
             </span>
             <span>
               <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">

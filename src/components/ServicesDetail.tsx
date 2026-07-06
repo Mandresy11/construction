@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
 import { SectionPhotoBg } from "./SectionPhotoBg";
-import { ShieldCheckIcon } from "./icons/ShieldCheckIcon";
+import { Icon } from "./icons/Iconify";
 
 const SERVICES_DETAIL = [
   {
@@ -103,9 +103,10 @@ export function ServicesDetail() {
                         key={feature}
                         className="flex items-start gap-2 text-xs leading-snug text-cream/75"
                       >
-                        <span style={{ "--ink": "var(--red)" } as React.CSSProperties}>
-                          <ShieldCheckIcon className="mt-0.5 h-4 w-4 shrink-0" />
-                        </span>
+                        <Icon
+                          icon="lucide:shield-check"
+                          className="mt-0.5 h-4 w-4 shrink-0 text-red"
+                        />
                         {feature}
                       </li>
                     ))}

@@ -1,50 +1,42 @@
 import { Reveal } from "./motion/Reveal";
-import { ShieldCheckIcon } from "./icons/ShieldCheckIcon";
-import { PartnersIcon } from "./icons/ServiceIcons";
-import { MedalIcon, ClockIcon } from "./icons/TrustIcons";
-import {
-  ClipboardIcon,
-  BlueprintIcon,
-  TrussIcon,
-  TruckIcon,
-} from "./icons/ProcessIcons";
+import { Icon } from "./icons/Iconify";
 
 const STEPS = [
   {
     n: "01",
     title: "Étude & devis",
     text: "Visite du terrain, écoute du besoin, devis gratuit sous 48h.",
-    Icon: ClipboardIcon,
+    icon: "lucide:clipboard-list",
     arc: "60 239",
   },
   {
     n: "02",
     title: "Conception technique",
     text: "Plans de charpente, choix des bois, validation avant chantier.",
-    Icon: BlueprintIcon,
+    icon: "lucide:drafting-compass",
     arc: "119 239",
   },
   {
     n: "03",
     title: "Construction",
     text: "Taille en atelier, montage sur site par nos équipes qualifiées.",
-    Icon: TrussIcon,
+    icon: "lucide:hammer",
     arc: "179 239",
   },
   {
     n: "04",
     title: "Livraison & suivi",
     text: "Réception des travaux et accompagnement après livraison.",
-    Icon: TruckIcon,
+    icon: "lucide:truck",
     arc: "239 239",
   },
 ];
 
 const TRUST_POINTS = [
-  { title: "Expertise", text: "Savoir-faire depuis plus de 10 ans", Icon: MedalIcon },
-  { title: "Qualité", text: "Matériaux sélectionnés avec exigence", Icon: ShieldCheckIcon },
-  { title: "Réactivité", text: "Délais respectés et maîtrisés", Icon: ClockIcon },
-  { title: "Accompagnement", text: "Un interlocuteur unique à vos côtés", Icon: PartnersIcon },
+  { title: "Expertise", text: "Savoir-faire depuis plus de 10 ans", icon: "lucide:medal" },
+  { title: "Qualité", text: "Matériaux sélectionnés avec exigence", icon: "lucide:shield-check" },
+  { title: "Réactivité", text: "Délais respectés et maîtrisés", icon: "lucide:clock" },
+  { title: "Accompagnement", text: "Un interlocuteur unique à vos côtés", icon: "lucide:handshake" },
 ];
 
 function ArrowHead({ className }: { className?: string }) {
@@ -116,7 +108,7 @@ export function Process() {
                       strokeLinecap="butt"
                     />
                   </svg>
-                  <step.Icon />
+                  <Icon icon={step.icon} className="h-9 w-9 text-ink" />
                 </span>
                 <h3 className="mt-4 font-display text-base uppercase leading-none text-ink">
                   {step.title}
@@ -166,9 +158,7 @@ export function Process() {
                     strokeLinecap="butt"
                   />
                 </svg>
-                <span className="[&_svg]:h-6 [&_svg]:w-6">
-                  <step.Icon />
-                </span>
+                <Icon icon={step.icon} className="h-6 w-6 text-ink" />
               </span>
               <div className="pt-1">
                 <div className="flex items-baseline gap-2">
@@ -189,12 +179,10 @@ export function Process() {
             {TRUST_POINTS.map((point) => (
               <div key={point.title} className="flex min-w-0 items-center gap-2">
                 <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red/10">
-                  <span style={{ "--ink": "var(--red)" } as React.CSSProperties}>
-                    <point.Icon className="h-4 w-4" />
-                  </span>
+                  <Icon icon={point.icon} className="h-4 w-4 text-red" />
                 </span>
                 <div className="min-w-0 lg:max-w-36">
-                  <p className="break-words text-xs font-semibold uppercase tracking-wide text-ink hyphens-auto sm:text-sm">
+                  <p className="wrap-break-word text-xs font-semibold uppercase tracking-wide text-ink hyphens-auto sm:text-sm">
                     {point.title}
                   </p>
                   <p className="text-xs leading-snug text-ink/60">{point.text}</p>

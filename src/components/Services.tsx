@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
-import { ShieldCheckIcon } from "./icons/ShieldCheckIcon";
+import { Icon } from "./icons/Iconify";
 
 const SERVICES = [
   {
@@ -69,9 +69,7 @@ export function Services() {
           <Reveal delay={0.3}>
             <div className="mt-6 flex items-center gap-4">
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red/10">
-                <span style={{ "--ink": "var(--red)" } as React.CSSProperties}>
-                  <ShieldCheckIcon className="h-5 w-5" />
-                </span>
+                <Icon icon="lucide:shield-check" className="h-5 w-5 text-red" />
               </span>
               <p className="flex items-baseline gap-2">
                 <span className="font-display text-3xl text-ink">15+</span>

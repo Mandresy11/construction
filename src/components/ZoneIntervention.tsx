@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
 import { SectionPhotoBg } from "./SectionPhotoBg";
-import { MapPinIcon } from "./icons/MapPinIcon";
+import { Icon } from "./icons/Iconify";
 
 const COMMUNES = [
   "Saint-Denis",
@@ -20,24 +20,25 @@ const COMMUNES = [
 ];
 
 // Coordinates below are calibrated to the actual island silhouette inside
-// carteRéunion.png (a 1536x1024 / 3:2 image). The container now matches that
-// aspect ratio exactly (no object-contain letterboxing), so these are the
-// raw pixel fractions of the source image and markers land precisely on land.
-const SAINT_DENIS = { left: "58.2%", top: "5.5%" };
-const SAINT_PIERRE = { left: "49.6%", top: "72.1%" };
+// carteRéunion.png (a 1536x1024 / 3:2 image, island spanning ~x 26-83% /
+// y 13-78% of the frame). The container matches that aspect ratio exactly
+// (no object-contain letterboxing), so these are raw pixel fractions of the
+// source image and markers land precisely on the coastline.
+const SAINT_DENIS = { left: "46%", top: "16%" };
+const SAINT_PIERRE = { left: "63%", top: "71.5%" };
 
 const MARKERS = [
-  { left: "72.3%", top: "15.5%" }, // Saint-André (NE)
-  { left: "82.8%", top: "34.5%" }, // Saint-Benoît (E)
-  { left: "76.3%", top: "59.6%" }, // Saint-Joseph (SE)
-  { left: "50%", top: "49%" }, // Saint-Louis (SW)
-  { left: "33%", top: "34.5%" }, // Saint-Paul (W)
-  { left: "45.2%", top: "13%" }, // Saint-Leu (NW)
+  { left: "63%", top: "22%" }, // Saint-André (NE)
+  { left: "74.5%", top: "38%" }, // Saint-Benoît (E)
+  { left: "72.5%", top: "63%" }, // Saint-Joseph (SE)
+  { left: "47.5%", top: "58%" }, // Saint-Louis (SW)
+  { left: "33%", top: "38%" }, // Saint-Paul (W)
+  { left: "35.5%", top: "25%" }, // Saint-Leu (NW)
 ];
 
 const HAUTS_MARKERS = [
-  { left: "54%", top: "24%" }, // Salazie
-  { left: "62%", top: "38%" }, // Cilaos
+  { left: "50%", top: "32%" }, // Salazie
+  { left: "52%", top: "48%" }, // Cilaos
 ];
 
 export function ZoneIntervention() {
@@ -54,7 +55,7 @@ export function ZoneIntervention() {
       <div className="grid gap-16 lg:grid-cols-[3fr_4fr] lg:items-center lg:gap-16">
         <Reveal className="flex flex-col justify-center">
           <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.2em] text-red">
-            <MapPinIcon className="h-4 w-4" />
+            <Icon icon="lucide:map-pin" className="h-4 w-4" />
             Zone d&apos;intervention
           </p>
           <h2 className="mt-4 font-display text-4xl uppercase leading-[0.95] tracking-tight lg:text-5xl">
@@ -73,7 +74,7 @@ export function ZoneIntervention() {
                 key={commune}
                 className="inline-flex items-center gap-2 rounded-md border border-cream/15 bg-cream/5 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-cream/85"
               >
-                <MapPinIcon className="h-3.5 w-3.5" />
+                <Icon icon="lucide:map-pin" className="h-3.5 w-3.5 text-red" />
                 {commune}
               </span>
             ))}
@@ -103,20 +104,6 @@ export function ZoneIntervention() {
               className="absolute inset-[-8%] rounded-full border border-dashed border-red/20"
             />
 
-            <div className="absolute left-1/2 top-0 flex -translate-x-1/2 -translate-y-[calc(100%+2rem)] flex-col items-center gap-1.5">
-              <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
-                Saint-Denis
-              </span>
-              <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
-            </div>
-
-            <div className="absolute bottom-0 left-1/2 flex -translate-x-1/2 translate-y-[calc(100%+2rem)] flex-col items-center gap-1.5">
-              <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
-              <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
-                Saint-Pierre
-              </span>
-            </div>
-
             <Image
               src="/exemple/carteRéunion.png"
               alt="Carte stylisée de La Réunion avec la zone d'intervention"
@@ -124,6 +111,28 @@ export function ZoneIntervention() {
               sizes="(min-width: 1024px) 40vw, 80vw"
               className="object-contain"
             />
+
+            {/* Labels ancrés sur leurs marqueurs, placés APRÈS l'image pour
+                peindre au-dessus (le PNG est opaque par endroits). */}
+            <div
+              className="absolute flex -translate-x-1/2 -translate-y-[calc(100%+1.25rem)] flex-col items-center gap-1.5"
+              style={SAINT_DENIS}
+            >
+              <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
+                Saint-Denis
+              </span>
+              <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
+            </div>
+
+            <div
+              className="absolute flex -translate-x-1/2 translate-y-5 flex-col items-center gap-1.5"
+              style={SAINT_PIERRE}
+            >
+              <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
+              <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
+                Saint-Pierre
+              </span>
+            </div>
 
             <span
               aria-hidden="true"

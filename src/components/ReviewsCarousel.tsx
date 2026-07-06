@@ -22,7 +22,7 @@ export function ReviewsCarousel({ reviews }: { reviews: Review[] }) {
           première carte sur le bord du scrollport et « mange » le padding. */}
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-6 pb-2 scrollbar-none scroll-pl-6 md:px-10 md:scroll-pl-10 lg:px-[max(0px,calc((100vw-72rem)/2))] lg:scroll-pl-[max(0px,calc((100vw-72rem)/2))] [&::-webkit-scrollbar]:hidden"
+        className="flex snap-x snap-mandatory gap-5 overflow-x-auto scroll-smooth px-6 pb-2 scrollbar-none scroll-pl-6 md:px-10 md:scroll-pl-10 [&::-webkit-scrollbar]:hidden"
       >
         {reviews.map((review) => (
           <div

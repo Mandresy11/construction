@@ -1,8 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
 import { CountUp } from "./motion/CountUp";
-import { ShieldCheckIcon } from "./icons/ShieldCheckIcon";
-import { StarIcon, HouseIcon } from "./icons/TrustIcons";
+import { Icon } from "./icons/Iconify";
 
 const STATS = [
   {
@@ -10,21 +9,21 @@ const STATS = [
     suffix: " ans",
     label: "D'expérience",
     text: "Un savoir-faire local éprouvé depuis 2009",
-    Icon: StarIcon,
+    icon: "lucide:star",
   },
   {
     value: 120,
     suffix: "+",
     label: "Chantiers livrés",
     text: "Du particulier aux grands projets professionnels",
-    Icon: HouseIcon,
+    icon: "lucide:house",
   },
   {
     value: 100,
     suffix: "%",
     label: "Bois qualifié",
     text: "Sélection rigoureuse pour des constructions durables",
-    Icon: ShieldCheckIcon,
+    icon: "lucide:shield-check",
   },
 ];
 
@@ -137,9 +136,7 @@ export function About() {
             {STATS.map((stat) => (
               <div key={stat.label} className="flex items-start gap-4 sm:px-6 sm:first:pl-0">
                 <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-red/10">
-                  <span style={{ "--ink": "var(--red)" } as React.CSSProperties}>
-                    <stat.Icon className="h-6 w-6" />
-                  </span>
+                  <Icon icon={stat.icon} className="h-6 w-6 text-red" />
                 </span>
                 <div>
                   <p className="flex items-baseline gap-0.5 font-display text-3xl leading-none text-blue">
