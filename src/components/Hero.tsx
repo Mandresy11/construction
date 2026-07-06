@@ -104,8 +104,7 @@ export function Hero() {
           stagger={0.12}
         >
           {OFFERS.map((offer) => (
-            <StaggerItem key={offer.value} className="flex flex-col gap-4 px-6 py-6 md:px-10">
-              <span aria-hidden="true" className="self-end text-lg">↗</span>
+            <StaggerItem key={offer.value} className="flex flex-col px-6 py-6 md:px-10">
               <div>
                 <p className="flex flex-wrap items-baseline gap-x-2 font-display text-3xl leading-none sm:text-4xl">
                   <span>{offer.value}</span>

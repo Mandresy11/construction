@@ -5,7 +5,7 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 
 export function MobileCtaBubble() {
   const [pastHero, setPastHero] = useState(false);
-  const [contactVisible, setContactVisible] = useState(false);
+  const [endVisible, setEndVisible] = useState(false);
   const shouldReduce = useReducedMotion();
 
   useEffect(() => {
@@ -13,23 +13,32 @@ export function MobileCtaBubble() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
 
-    const contact = document.getElementById("contact");
-    let observer: IntersectionObserver | undefined;
-    if (contact) {
-      observer = new IntersectionObserver(
-        ([entry]) => setContactVisible(entry.isIntersecting),
-        { threshold: 0.15 }
-      );
-      observer.observe(contact);
-    }
+    // La bulle disparaît sur la section contact (redondante) et sur le
+    // footer (elle masquerait les liens du bas).
+    const visible = new Set<Element>();
+    const targets = [
+      document.getElementById("contact"),
+      document.querySelector("footer"),
+    ].filter(Boolean) as Element[];
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) visible.add(entry.target);
+          else visible.delete(entry.target);
+        });
+        setEndVisible(visible.size > 0);
+      },
+      { threshold: 0.1 }
+    );
+    targets.forEach((t) => observer.observe(t));
 
     return () => {
       window.removeEventListener("scroll", onScroll);
-      observer?.disconnect();
+      observer.disconnect();
     };
   }, []);
 
-  const show = pastHero && !contactVisible;
+  const show = pastHero && !endVisible;
 
   return (
     <AnimatePresence>

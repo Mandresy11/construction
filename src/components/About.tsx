@@ -57,7 +57,7 @@ function AboutCta({ className }: { className: string }) {
 
 export function About() {
   return (
-    <section className="overflow-hidden bg-sand px-6 py-16 md:px-10 lg:py-24">
+    <section id="a-propos" className="overflow-hidden bg-sand px-6 py-16 md:px-10 lg:py-24">
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <Reveal className="flex flex-col justify-center">

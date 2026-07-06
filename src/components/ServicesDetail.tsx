@@ -53,7 +53,7 @@ export function ServicesDetail() {
       src="/exemple/back3.png"
       alt=""
       overlay="linear-gradient(180deg, rgba(10,10,8,0.15) 0%, rgba(10,10,8,0.35) 100%)"
-      className="px-6 py-12 text-cream md:px-10 lg:py-16"
+      className="px-6 py-12 text-cream md:px-10 lg:py-24"
     >
       <section id="services">
         <Reveal>
@@ -65,12 +65,14 @@ export function ServicesDetail() {
           </h2>
         </Reveal>
 
-        <div className="mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto pb-2 scrollbar-none lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:pb-0">
+        {/* Carousel full-bleed en mobile : la carte suivante dépasse à droite
+            pour signaler qu'on peut swiper. */}
+        <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 scrollbar-none md:-mx-10 md:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
           {SERVICES_DETAIL.map((service, i) => (
             <Reveal
               key={service.n}
               delay={i * 0.08}
-              className="h-full w-[82vw] shrink-0 snap-start sm:w-[55vw] lg:w-auto"
+              className="h-full w-[76vw] shrink-0 snap-start sm:w-[55vw] lg:w-auto"
             >
               <div
                 id={service.id}
@@ -112,7 +114,7 @@ export function ServicesDetail() {
                   <div className="mt-auto pt-5">
                     <a
                       href="#contact"
-                      className="group/link flex w-full items-center justify-center gap-3 rounded-lg bg-red px-5 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream shadow-[0_6px_20px_rgba(226,55,42,0.35)] transition hover:bg-cream hover:text-ink active:scale-[0.97]"
+                      className="group/link flex w-full items-center justify-center gap-3 border border-cream/35 px-5 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:border-red hover:bg-red active:scale-[0.97]"
                     >
                       Demander un devis
                       <span

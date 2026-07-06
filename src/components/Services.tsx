@@ -1,11 +1,5 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
-import {
-  CharpenteIcon,
-  CoordinationIcon,
-  ConstructionBoisIcon,
-  PartnersIcon,
-} from "./icons/ServiceIcons";
 import { ShieldCheckIcon } from "./icons/ShieldCheckIcon";
 
 const SERVICES = [
@@ -13,25 +7,21 @@ const SERVICES = [
     n: "01",
     title: "Charpente traditionnelle",
     text: "Structures en bois massif pensées pour durer.",
-    Icon: CharpenteIcon,
   },
   {
     n: "02",
     title: "Construction bois",
     text: "Maisons, extensions et bungalows en ossature bois.",
-    Icon: ConstructionBoisIcon,
   },
   {
     n: "03",
     title: "Coordination de travaux",
     text: "Un interlocuteur unique, du plan à la livraison.",
-    Icon: CoordinationIcon,
   },
   {
     n: "04",
     title: "Autres corps de métier",
     text: "Peinture et travaux spécialisés avec nos partenaires.",
-    Icon: PartnersIcon,
   },
 ];
 
@@ -49,34 +39,40 @@ export function Services() {
 
       <div className="mt-10 grid gap-12 lg:grid-cols-2 lg:gap-16">
         <div className="flex flex-col">
-          <div className="flex flex-1 flex-col gap-4">
+          {/* Liste éditoriale : gros numéros + séparateurs fins, sans cartes */}
+          <div className="flex-1 divide-y divide-ink/10 border-y border-ink/10">
             {SERVICES.map((service, i) => (
               <Reveal key={service.n} delay={i * 0.06}>
-                <div className="flex items-center gap-4 rounded-2xl bg-white p-5 shadow-[0_2px_20px_rgba(20,20,15,0.06)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_10px_30px_rgba(20,20,15,0.10)] sm:gap-5">
-                  <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-ink sm:h-14 sm:w-14">
-                    <span style={{ "--ink": "var(--cream)" } as React.CSSProperties}>
-                      <service.Icon />
-                    </span>
-                  </span>
-                  <span className="shrink-0 font-display text-2xl text-red">
+                <div className="group flex items-baseline gap-5 py-5 sm:gap-8 lg:py-6">
+                  <span className="shrink-0 font-display text-3xl leading-none text-red lg:text-4xl">
                     {service.n}
                   </span>
-                  <div className="min-w-0">
-                    <h3 className="wrap-break-word font-display text-lg uppercase leading-none text-ink hyphens-auto">
+                  <div className="min-w-0 flex-1">
+                    <h3 className="wrap-break-word font-display text-lg uppercase leading-none text-ink hyphens-auto lg:text-xl">
                       {service.title}
                     </h3>
                     <p className="mt-1.5 text-sm leading-snug text-ink/60">
                       {service.text}
                     </p>
                   </div>
+                  <span
+                    aria-hidden="true"
+                    className="hidden shrink-0 self-center text-ink/25 transition-all duration-300 group-hover:translate-x-1 group-hover:text-red sm:block"
+                  >
+                    →
+                  </span>
                 </div>
               </Reveal>
             ))}
           </div>
 
           <Reveal delay={0.3}>
-            <div className="mt-4 flex items-center gap-4 rounded-2xl bg-white p-5 shadow-[0_2px_20px_rgba(20,20,15,0.06)]">
-              <ShieldCheckIcon className="h-10 w-10 shrink-0" />
+            <div className="mt-6 flex items-center gap-4">
+              <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-red/10">
+                <span style={{ "--ink": "var(--red)" } as React.CSSProperties}>
+                  <ShieldCheckIcon className="h-5 w-5" />
+                </span>
+              </span>
               <p className="flex items-baseline gap-2">
                 <span className="font-display text-3xl text-ink">15+</span>
                 <span className="flex flex-col leading-tight">
@@ -104,7 +100,7 @@ export function Services() {
           </div>
           <a
             href="#realisations"
-            className="group mt-6 flex items-center justify-center gap-3 self-end rounded-lg bg-ink px-8 py-4 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink/85 active:scale-[0.97]"
+            className="group mt-6 flex items-center justify-center gap-3 self-end bg-ink px-8 py-4 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink/85 active:scale-[0.97]"
           >
             Voir nos réalisations
             <span

@@ -11,14 +11,16 @@ export function SiteHeader() {
 
   return (
     <header className="flex items-center justify-between gap-6 px-6 py-4 md:px-10">
-      <Link href="/" className="shrink-0">
+      {/* Pastille crème : le logo est en PNG transparent aux traits noirs,
+          invisible directement sur fond sombre. */}
+      <Link href="/" className="flex shrink-0 items-center justify-center rounded-md bg-cream p-1.5">
         <Image
           src="/exemple/logo.png"
           alt="Nemrod's Emergence Construction"
           width={1254}
           height={1254}
           priority
-          className="h-16 w-16 rounded-md"
+          className="h-13 w-13"
         />
       </Link>
 

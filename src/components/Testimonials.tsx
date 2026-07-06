@@ -86,7 +86,7 @@ export function Testimonials() {
           href="https://www.google.com/search?q=Nemrod%27s+Emergence+Construction+avis"
           target="_blank"
           rel="noopener noreferrer"
-          className="group inline-flex items-center gap-3 rounded-lg bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink/85 active:scale-[0.97]"
+          className="group inline-flex items-center gap-3 bg-ink px-6 py-4 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink/85 active:scale-[0.97]"
         >
           <GoogleIcon className="h-5 w-5" />
           Voir nos avis Google

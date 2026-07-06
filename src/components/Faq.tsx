@@ -28,9 +28,9 @@ const FAQS = [
 export function Faq() {
   return (
     <SectionPhotoBg
-      src="/exemple/back3.png"
+      src="/image/chantier4.png"
       alt=""
-      overlay="linear-gradient(180deg, rgba(10,10,8,0.35) 0%, rgba(10,10,8,0.65) 100%)"
+      overlay="linear-gradient(180deg, rgba(10,10,8,0.82) 0%, rgba(10,10,8,0.9) 100%)"
       className="px-6 py-16 text-cream md:px-10 lg:py-24"
     >
       <section id="faq" className="mx-auto grid max-w-6xl gap-12 lg:grid-cols-[2fr_3fr] lg:gap-16">

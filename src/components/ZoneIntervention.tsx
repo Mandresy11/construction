@@ -68,7 +68,7 @@ export function ZoneIntervention() {
             de Saint-Denis à Saint-Pierre en passant par Saint-Paul.
           </p>
           <div className="mt-8 flex flex-wrap gap-2.5">
-            {COMMUNES.map((commune) => (
+            {COMMUNES.slice(0, 8).map((commune) => (
               <span
                 key={commune}
                 className="inline-flex items-center gap-2 rounded-md border border-cream/15 bg-cream/5 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-cream/85"
@@ -77,6 +77,9 @@ export function ZoneIntervention() {
                 {commune}
               </span>
             ))}
+            <span className="inline-flex items-center rounded-md border border-dashed border-cream/25 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-cream/60">
+              + {COMMUNES.length - 8} autres communes
+            </span>
           </div>
 
           <a

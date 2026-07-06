@@ -74,7 +74,7 @@ export function Realisations() {
       <SectionPhotoBg
         src="/exemple/back3.png"
         alt=""
-        overlay="linear-gradient(180deg, rgba(10,10,8,0.35) 0%, rgba(10,10,8,0.6) 100%)"
+        overlay="linear-gradient(180deg, rgba(10,10,8,0.82) 0%, rgba(10,10,8,0.92) 100%)"
         className="pb-14 pt-16 text-cream lg:pb-16 lg:pt-24"
       >
         <div className="flex flex-col gap-8 px-6 sm:flex-row sm:items-end sm:justify-between md:px-10">
