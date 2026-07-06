@@ -28,7 +28,7 @@ export function FaqList({ items }: { items: FaqItem[] }) {
               type="button"
               aria-expanded={isOpen}
               onClick={() => setOpenIndex(isOpen ? null : i)}
-              className="flex w-full cursor-pointer items-center gap-4 px-5 py-4 text-left"
+              className="flex w-full items-center gap-4 px-5 py-4 text-left"
             >
               <span
                 aria-hidden="true"

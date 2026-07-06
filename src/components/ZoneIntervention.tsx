@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
 import { SectionPhotoBg } from "./SectionPhotoBg";
+import { ZoneCommunesToggle } from "./ZoneCommunesToggle";
 import { Icon } from "./icons/Iconify";
 
 const COMMUNES = [
@@ -41,13 +42,92 @@ const HAUTS_MARKERS = [
   { left: "52%", top: "48%" }, // Cilaos
 ];
 
+function ReunionMap({ className = "" }: { className?: string }) {
+  return (
+    <div className={`relative mx-auto aspect-3/2 w-full ${className}`}>
+      <span
+        aria-hidden="true"
+        className="absolute inset-[-8%] rounded-full border border-dashed border-red/20"
+      />
+
+      <Image
+        src="/exemple/carteRéunion.png"
+        alt="Carte stylisée de La Réunion avec la zone d'intervention"
+        fill
+        sizes="(min-width: 1024px) 40vw, 80vw"
+        className="object-contain"
+      />
+
+      <div
+        className="absolute flex -translate-x-1/2 -translate-y-[calc(100%+1.25rem)] flex-col items-center gap-1.5"
+        style={SAINT_DENIS}
+      >
+        <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
+          Saint-Denis
+        </span>
+        <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
+      </div>
+
+      <div
+        className="absolute flex -translate-x-1/2 translate-y-5 flex-col items-center gap-1.5"
+        style={SAINT_PIERRE}
+      >
+        <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
+        <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
+          Saint-Pierre
+        </span>
+      </div>
+
+      <span
+        aria-hidden="true"
+        className="ring-pulse absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-red/40"
+        style={SAINT_DENIS}
+      />
+      <span
+        aria-hidden="true"
+        className="absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red"
+        style={SAINT_DENIS}
+      />
+
+      <span
+        aria-hidden="true"
+        className="ring-pulse absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-red/40"
+        style={SAINT_PIERRE}
+      />
+      <span
+        aria-hidden="true"
+        className="absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red"
+        style={SAINT_PIERRE}
+      />
+
+      {MARKERS.map((marker, i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red/80"
+          style={marker}
+        />
+      ))}
+
+      {HAUTS_MARKERS.map((marker, i) => (
+        <span
+          key={i}
+          aria-hidden="true"
+          className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue"
+          style={marker}
+        />
+      ))}
+    </div>
+  );
+}
+
 export function ZoneIntervention() {
   return (
     <SectionPhotoBg
       src="/exemple/back5.png"
       alt=""
       overlay="linear-gradient(180deg, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.9) 100%)"
-      className="px-6 py-16 text-cream md:px-10 lg:py-24"
+      className="px-6 py-16 text-cream sm:pt-36 md:px-10 md:pt-40 lg:pt-44 lg:pb-24"
     >
       {/* 3fr/4fr : la colonne carte doit être plus large que la colonne texte
           pour que l'île rende à la même taille que dans la maquette exemple6
@@ -68,20 +148,10 @@ export function ZoneIntervention() {
             équipes se déplacent sur toute l&apos;île, du littoral aux hauts,
             de Saint-Denis à Saint-Pierre en passant par Saint-Paul.
           </p>
-          <div className="mt-8 flex flex-wrap gap-2.5">
-            {COMMUNES.slice(0, 8).map((commune) => (
-              <span
-                key={commune}
-                className="inline-flex items-center gap-2 rounded-md border border-cream/15 bg-cream/5 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-cream/85"
-              >
-                <Icon icon="lucide:map-pin" className="h-3.5 w-3.5 text-red" />
-                {commune}
-              </span>
-            ))}
-            <span className="inline-flex items-center rounded-md border border-dashed border-cream/25 px-3 py-2 text-xs font-semibold uppercase tracking-wide text-cream/60">
-              + {COMMUNES.length - 8} autres communes
-            </span>
-          </div>
+
+          <ReunionMap className="mt-8 max-w-xl lg:hidden" />
+
+          <ZoneCommunesToggle communes={COMMUNES} />
 
           <a
             href="#contact"
@@ -97,83 +167,8 @@ export function ZoneIntervention() {
           </a>
         </Reveal>
 
-        <Reveal delay={0.1} className="flex justify-center">
-          <div className="relative mx-auto mt-14 aspect-3/2 w-full sm:mt-16">
-            <span
-              aria-hidden="true"
-              className="absolute inset-[-8%] rounded-full border border-dashed border-red/20"
-            />
-
-            <Image
-              src="/exemple/carteRéunion.png"
-              alt="Carte stylisée de La Réunion avec la zone d'intervention"
-              fill
-              sizes="(min-width: 1024px) 40vw, 80vw"
-              className="object-contain"
-            />
-
-            {/* Labels ancrés sur leurs marqueurs, placés APRÈS l'image pour
-                peindre au-dessus (le PNG est opaque par endroits). */}
-            <div
-              className="absolute flex -translate-x-1/2 -translate-y-[calc(100%+1.25rem)] flex-col items-center gap-1.5"
-              style={SAINT_DENIS}
-            >
-              <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
-                Saint-Denis
-              </span>
-              <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
-            </div>
-
-            <div
-              className="absolute flex -translate-x-1/2 translate-y-5 flex-col items-center gap-1.5"
-              style={SAINT_PIERRE}
-            >
-              <span aria-hidden="true" className="h-4 w-px border-l border-dashed border-red/50" />
-              <span className="whitespace-nowrap rounded-md border border-cream/20 bg-ink/80 px-3 py-1.5 text-xs font-semibold text-cream shadow-lg backdrop-blur-sm">
-                Saint-Pierre
-              </span>
-            </div>
-
-            <span
-              aria-hidden="true"
-              className="ring-pulse absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-red/40"
-              style={SAINT_DENIS}
-            />
-            <span
-              aria-hidden="true"
-              className="absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red"
-              style={SAINT_DENIS}
-            />
-
-            <span
-              aria-hidden="true"
-              className="ring-pulse absolute h-8 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full border border-dashed border-red/40"
-              style={SAINT_PIERRE}
-            />
-            <span
-              aria-hidden="true"
-              className="absolute h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red"
-              style={SAINT_PIERRE}
-            />
-
-            {MARKERS.map((marker, i) => (
-              <span
-                key={i}
-                aria-hidden="true"
-                className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-red/80"
-                style={marker}
-              />
-            ))}
-
-            {HAUTS_MARKERS.map((marker, i) => (
-              <span
-                key={i}
-                aria-hidden="true"
-                className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full bg-blue"
-                style={marker}
-              />
-            ))}
-          </div>
+        <Reveal delay={0.1} className="hidden justify-center lg:flex">
+          <ReunionMap className="mt-14 sm:mt-16" />
         </Reveal>
       </div>
     </SectionPhotoBg>

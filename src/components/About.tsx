@@ -56,7 +56,10 @@ function AboutCta({ className }: { className: string }) {
 
 export function About() {
   return (
-    <section id="a-propos" className="overflow-hidden bg-sand px-6 py-16 md:px-10 lg:py-24">
+    <section
+      id="a-propos"
+      className="relative z-20 overflow-visible bg-sand px-6 pt-16 pb-28 md:px-10 lg:pt-24 lg:pb-36"
+    >
       <div className="mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <Reveal className="flex flex-col justify-center">
@@ -70,6 +73,20 @@ export function About() {
               <br />
               <span className="text-red">de plus</span>
             </h2>
+
+            {/* Photo en mobile uniquement, juste après le titre : la version
+                desktop (colonne de droite) reste inchangée. */}
+            <div className="relative mt-6 h-64 w-full overflow-hidden rounded-2xl sm:hidden">
+              <Image
+                src="/image/nous.png"
+                alt="Équipe de Nemrod's Emergence Construction à La Réunion"
+                fill
+                sizes="100vw"
+                className="object-cover mix-blend-multiply"
+                style={{ objectPosition: "70% 50%" }}
+              />
+            </div>
+
             <p className="mt-6 max-w-md text-sm leading-relaxed text-ink/70">
               Nemrod&apos;s Emergence Construction est née à La Réunion, pour La
               Réunion. Nous taillons chaque charpente sur mesure et suivons nos
@@ -100,10 +117,10 @@ export function About() {
               className="absolute right-20 top-3 z-10 hidden h-2.5 w-2.5 rounded-full bg-red lg:block"
             />
 
-            <div className="relative h-96 overflow-hidden lg:h-120">
+            <div className="relative hidden h-96 overflow-hidden sm:block lg:h-120">
               <Image
-                src="/image/back.png"
-                alt="Chantier de charpente bois de Nemrod's Emergence Construction, face au relief de La Réunion"
+                src="/image/nous.png"
+                alt="Équipe de Nemrod's Emergence Construction à La Réunion"
                 fill
                 sizes="(min-width: 1024px) 50vw, 100vw"
                 className="object-cover mix-blend-multiply"
@@ -128,10 +145,13 @@ export function About() {
           </Reveal>
         </div>
 
-        <Reveal
-          delay={0.15}
-          className="relative z-10 mt-8 hidden rounded-3xl bg-white p-6 shadow-[0_10px_50px_rgba(20,20,15,0.08)] sm:block sm:p-8 lg:mt-12 lg:p-10"
-        >
+      </div>
+
+      <Reveal
+        delay={0.15}
+        className="absolute inset-x-6 bottom-0 z-30 hidden sm:block md:inset-x-10"
+      >
+        <div className="mx-auto max-w-6xl translate-y-1/2 rounded-3xl bg-white p-6 shadow-[0_10px_50px_rgba(20,20,15,0.08)] sm:p-8 lg:p-10">
           <div className="grid gap-8 divide-ink/10 sm:grid-cols-3 sm:divide-x">
             {STATS.map((stat) => (
               <div key={stat.label} className="flex items-start gap-4 sm:px-6 sm:first:pl-0">
@@ -151,8 +171,8 @@ export function About() {
               </div>
             ))}
           </div>
-        </Reveal>
-      </div>
+        </div>
+      </Reveal>
     </section>
   );
 }

@@ -32,13 +32,6 @@ const STEPS = [
   },
 ];
 
-const TRUST_POINTS = [
-  { title: "Expertise", text: "Savoir-faire depuis plus de 10 ans", icon: "lucide:medal" },
-  { title: "Qualité", text: "Matériaux sélectionnés avec exigence", icon: "lucide:shield-check" },
-  { title: "Réactivité", text: "Délais respectés et maîtrisés", icon: "lucide:clock" },
-  { title: "Accompagnement", text: "Un interlocuteur unique à vos côtés", icon: "lucide:handshake" },
-];
-
 function ArrowHead({ className }: { className?: string }) {
   return (
     <svg viewBox="0 0 8 12" fill="none" className={className} aria-hidden="true">
@@ -113,7 +106,7 @@ export function Process() {
                 <h3 className="mt-4 font-display text-base uppercase leading-none text-ink">
                   {step.title}
                 </h3>
-                <p className="mt-3 max-w-50 text-sm leading-relaxed text-ink/60">
+                <p className="mt-3 max-w-60 text-sm leading-relaxed text-ink/60">
                   {step.text}
                 </p>
               </Reveal>
@@ -173,27 +166,10 @@ export function Process() {
           ))}
         </div>
 
-        {/* Trust strip */}
-        <div className="mt-8 flex flex-col gap-6 border-t border-ink/10 pt-6 lg:flex-row lg:items-center lg:justify-between">
-          <div className="grid grid-cols-2 gap-x-3 gap-y-5 sm:gap-6 lg:flex lg:flex-nowrap lg:items-center lg:gap-5">
-            {TRUST_POINTS.map((point) => (
-              <div key={point.title} className="flex min-w-0 items-center gap-2">
-                <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-red/10">
-                  <Icon icon={point.icon} className="h-4 w-4 text-red" />
-                </span>
-                <div className="min-w-0 lg:max-w-36">
-                  <p className="wrap-break-word text-xs font-semibold uppercase tracking-wide text-ink hyphens-auto sm:text-sm">
-                    {point.title}
-                  </p>
-                  <p className="text-xs leading-snug text-ink/60">{point.text}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
+        <div className="mt-8 flex justify-center border-t border-ink/10 pt-6">
           <a
             href="#services"
-            className="group inline-flex shrink-0 items-center justify-center gap-3 self-start bg-red px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink active:scale-[0.97] lg:self-auto"
+            className="group inline-flex shrink-0 items-center justify-center gap-3 bg-red px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink active:scale-[0.97]"
           >
             En savoir plus
             <span

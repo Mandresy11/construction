@@ -48,7 +48,7 @@ export function Faq() {
           </p>
           <a
             href="#contact"
-            className="group mt-8 inline-flex items-center gap-3 bg-red px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-cream hover:text-ink active:scale-[0.97]"
+            className="group mt-8 hidden items-center gap-3 bg-red px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-cream hover:text-ink active:scale-[0.97] lg:inline-flex"
           >
             Poser votre question
             <span
@@ -62,6 +62,21 @@ export function Faq() {
 
         <Reveal delay={0.1}>
           <FaqList items={FAQS} />
+        </Reveal>
+
+        <Reveal delay={0.15} className="lg:hidden">
+          <a
+            href="#contact"
+            className="group flex w-full items-center justify-center gap-3 bg-red px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-cream hover:text-ink active:scale-[0.97]"
+          >
+            Poser votre question
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-x-1"
+            >
+              →
+            </span>
+          </a>
         </Reveal>
       </section>
     </SectionPhotoBg>

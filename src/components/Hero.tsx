@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { SiteHeader } from "./SiteHeader";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 const OFFERS = [
@@ -42,8 +41,6 @@ export function Hero() {
       <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-transparent to-ink/70" />
 
       <div className="relative z-10 flex flex-1 flex-col">
-        <SiteHeader />
-
         <StaggerGroup
           className="flex flex-1 flex-col justify-center px-6 py-10 md:px-10 lg:max-w-3xl lg:px-16"
           delay={0.15}
@@ -63,7 +60,7 @@ export function Hero() {
           </StaggerItem>
 
           <StaggerItem>
-            <p className="mt-6 font-display text-lg uppercase leading-tight">
+            <p className="mt-6 whitespace-nowrap font-display text-xs uppercase leading-tight sm:text-lg">
               L&apos;expertise bois. L&apos;accompagnement de A à Z.
             </p>
             {/* En mobile on garde seulement la tagline : le hero respire mieux */}
@@ -78,7 +75,7 @@ export function Hero() {
             <div className="mt-8 flex flex-wrap gap-3">
               <a
                 href="#contact"
-                className="group flex items-center gap-3 bg-blue px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink active:scale-[0.97]"
+                className="group flex items-center gap-3 bg-blue-logo px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition hover:bg-ink hover:text-cream active:scale-[0.97]"
               >
                 Obtenir un devis gratuit
                 <span

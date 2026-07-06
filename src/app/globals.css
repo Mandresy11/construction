@@ -4,6 +4,10 @@
   --cream: #f1efe6;
   --ink: #14140f;
   --blue: #1652f0;
+  /* Bleu ciel exact du logo (échantillonné sur logo.png) : réservé aux CTA
+     "Devis gratuit" du hero et du header, à ne pas confondre avec --blue
+     (accent indigo utilisé pour les liens actifs, badges, stats...). */
+  --blue-logo: #75c0f6;
   --red: #e2372a;
   --concrete: #9a9a94;
   --sand: #e6ddc6;
@@ -13,12 +17,19 @@
   --color-cream: var(--cream);
   --color-ink: var(--ink);
   --color-blue: var(--blue);
+  --color-blue-logo: var(--blue-logo);
   --color-red: var(--red);
   --color-concrete: var(--concrete);
   --color-sand: var(--sand);
   --font-sans: var(--font-body);
   --font-display: var(--font-body);
   --font-body: var(--font-body);
+}
+
+/* Le header est fixed (96px de haut) : sans ça, tout lien d'ancre (#services,
+   #contact...) atterrit avec le titre de la section caché dessous. */
+html {
+  scroll-padding-top: 6.5rem;
 }
 
 body {
@@ -86,4 +97,25 @@ body {
   .step-dash-v {
     animation: none;
   }
+}
+
+/* Curseur personnalisé, réservé aux appareils avec une vraie souris : sur
+   tactile/hybride (pointer: coarse) le curseur système par défaut reste, il
+   n'a aucun sens sur un écran tactile. Lightning CSS (pipeline Tailwind v4)
+   ne supporte pas la syntaxe cursor: url() x y avec point d'ancrage — la
+   règle entière est alors silencieusement supprimée à la compilation — donc
+   arrow.svg est dessiné avec sa pointe au plus près de (0,0), le point
+   d'ancrage par défaut. */
+@media (pointer: fine) {
+  html {
+    cursor: url("/cursors/arrow.svg"), auto;
+  }
+}
+
+a,
+button,
+[role="button"],
+select,
+summary {
+  cursor: pointer;
 }

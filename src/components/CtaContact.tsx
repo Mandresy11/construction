@@ -1,12 +1,6 @@
 import { Reveal } from "./motion/Reveal";
 import { Icon } from "./icons/Iconify";
 
-const CONTACT_CARD =
-  "group flex items-center gap-4 rounded-2xl border border-cream/20 bg-ink/15 p-4 backdrop-blur-sm lg:p-5";
-
-const CONTACT_ICON =
-  "flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-cream/15 text-cream transition-colors duration-300 group-hover:bg-cream group-hover:text-red lg:h-11 lg:w-11";
-
 export function CtaContact() {
   return (
     <section
@@ -34,11 +28,8 @@ export function CtaContact() {
       <Reveal className="relative">
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end lg:gap-8">
           <div>
-            <p className="inline-flex items-center gap-2.5 rounded-full border border-cream/30 bg-ink/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em]">
-              <span aria-hidden="true" className="relative flex h-2 w-2">
-                <span className="absolute inline-flex h-full w-full rounded-full bg-cream opacity-60 motion-safe:animate-ping" />
-                <span className="relative inline-flex h-2 w-2 rounded-full bg-cream" />
-              </span>
+            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+              <Icon icon="lucide:clock-4" className="h-4 w-4" />
               Devis gratuit sous 48h
             </p>
             <h2 className="mt-4 max-w-2xl font-display text-4xl uppercase leading-[0.92] tracking-tight lg:mt-5 lg:text-6xl">
@@ -62,56 +53,6 @@ export function CtaContact() {
               →
             </span>
           </a>
-        </div>
-
-        <div className="mt-8 grid gap-3 border-t border-cream/25 pt-6 md:grid-cols-3 lg:mt-12 lg:gap-6 lg:pt-8">
-          <a
-            href="tel:+262262000000"
-            className={`${CONTACT_CARD} transition-colors duration-300 hover:border-cream/45 hover:bg-ink/25`}
-          >
-            <span className={CONTACT_ICON}>
-              <Icon icon="lucide:phone" className="h-5 w-5" />
-            </span>
-            <span>
-              <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">
-                Téléphone
-              </span>
-              <span className="mt-1 block font-display text-lg lg:text-xl">
-                02 62 00 00 00
-              </span>
-            </span>
-          </a>
-
-          <a
-            href="mailto:contact@nemrods-emergence.re"
-            className={`${CONTACT_CARD} transition-colors duration-300 hover:border-cream/45 hover:bg-ink/25`}
-          >
-            <span className={CONTACT_ICON}>
-              <Icon icon="lucide:mail" className="h-5 w-5" />
-            </span>
-            <span className="min-w-0">
-              <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">
-                Email
-              </span>
-              <span className="mt-1 block break-all font-display text-base lg:text-lg">
-                contact@nemrods-emergence.re
-              </span>
-            </span>
-          </a>
-
-          <div className={CONTACT_CARD}>
-            <span className={CONTACT_ICON}>
-              <Icon icon="lucide:map-pin" className="h-5 w-5" />
-            </span>
-            <span>
-              <span className="block text-xs uppercase tracking-[0.2em] text-cream/70">
-                Zone d&apos;intervention
-              </span>
-              <span className="mt-1 block font-display text-lg lg:text-xl">
-                Toute La Réunion
-              </span>
-            </span>
-          </div>
         </div>
       </Reveal>
     </section>

@@ -1,7 +1,6 @@
-import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
 import { SectionPhotoBg } from "./SectionPhotoBg";
-import { Icon } from "./icons/Iconify";
+import { ServicesDetailCarousel } from "./ServicesDetailCarousel";
 
 const SERVICES_DETAIL = [
   {
@@ -42,95 +41,69 @@ const SERVICES_DETAIL = [
       "Partenaires qualifiés",
       "Suivi jusqu'à réception",
     ],
+    image: "/image/chantier6.png",
+    imageAlt: "Villa et piscine à débordement, chantier multi-corps de métier coordonné",
+  },
+  {
+    n: "04",
+    id: "extension-renovation",
+    title: "Extension & rénovation",
+    description: "Agrandissement, surélévation ou rénovation de structures bois existantes.",
+    features: [
+      "Diagnostic de l'existant",
+      "Raccord invisible à la structure",
+      "Chantier propre et rapide",
+    ],
     image: "/image/chantier7.png",
-    imageAlt: "Extension bois coordonnée par Nemrod's Emergence Construction",
+    imageAlt: "Extension bois sur maison existante réalisée par Nemrod's Emergence Construction",
+  },
+  {
+    n: "05",
+    id: "terrasse-carport",
+    title: "Terrasse & carport bois",
+    description: "Terrasses, pergolas et carports en bois massif, adaptés au climat tropical.",
+    features: [
+      "Bois classe 4 traité autoclave",
+      "Toiture bac acier ou tuile",
+      "Pose en 1 à 2 semaines",
+    ],
+    image: "/image/chantier4.png",
+    imageAlt: "Terrasse belvédère en bois construite par Nemrod's Emergence Construction",
+  },
+  {
+    n: "06",
+    id: "amenagement-interieur",
+    title: "Aménagement intérieur bois",
+    description: "Menuiserie et agencements bois sur mesure, du sol au plafond.",
+    features: [
+      "Menuiserie sur mesure",
+      "Finitions soignées",
+      "Essences locales ou importées",
+    ],
+    image: "/image/chantier2.png",
+    imageAlt: "Aménagement intérieur bois réalisé par Nemrod's Emergence Construction",
   },
 ];
 
 export function ServicesDetail() {
   return (
     <SectionPhotoBg
-      src="/exemple/back3.png"
+      src="/image/chantier3.png"
       alt=""
-      overlay="linear-gradient(180deg, rgba(10,10,8,0.15) 0%, rgba(10,10,8,0.35) 100%)"
-      className="px-6 py-12 text-cream md:px-10 lg:py-24"
+      overlay="linear-gradient(180deg, rgba(241,239,230,0.86) 0%, rgba(241,239,230,0.95) 100%)"
+      className="px-6 py-12 text-ink md:px-10 lg:py-24"
     >
       <section id="services">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red">
             Nos prestations
           </p>
-          <h2 className="mt-4 font-display text-3xl uppercase leading-[0.95] tracking-tight text-cream lg:text-4xl">
+          <h2 className="mt-4 font-display text-3xl uppercase leading-[0.95] tracking-tight text-ink lg:text-4xl">
             Nos services en détail
           </h2>
         </Reveal>
 
-        {/* Carousel full-bleed en mobile : la carte suivante dépasse à droite
-            pour signaler qu'on peut swiper. */}
-        <div className="-mx-6 mt-8 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-2 scrollbar-none md:-mx-10 md:px-10 lg:mx-0 lg:grid lg:grid-cols-3 lg:gap-6 lg:overflow-visible lg:px-0 lg:pb-0">
-          {SERVICES_DETAIL.map((service, i) => (
-            <Reveal
-              key={service.n}
-              delay={i * 0.08}
-              className="h-full w-[76vw] shrink-0 snap-start sm:w-[55vw] lg:w-auto"
-            >
-              <div
-                id={service.id}
-                className="group flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-cream/10 bg-ink/50 backdrop-blur-sm transition-colors duration-300 hover:border-cream/25"
-              >
-                <div className="relative h-36 shrink-0 overflow-hidden lg:h-40">
-                  <Image
-                    src={service.image}
-                    alt={service.imageAlt}
-                    fill
-                    sizes="(min-width: 1024px) 33vw, 100vw"
-                    className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
-                  />
-                  <span className="absolute left-3 top-3 flex h-9 w-9 items-center justify-center rounded-lg bg-red font-display text-base text-cream">
-                    {service.n}
-                  </span>
-                </div>
-
-                <div className="flex flex-1 flex-col p-5">
-                  <h3 className="font-display text-xl uppercase leading-none text-cream">
-                    {service.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-snug text-cream/60">{service.description}</p>
-
-                  <ul className="mt-4 flex flex-col gap-2">
-                    {service.features.map((feature) => (
-                      <li
-                        key={feature}
-                        className="flex items-start gap-2 text-xs leading-snug text-cream/75"
-                      >
-                        <Icon
-                          icon="lucide:shield-check"
-                          className="mt-0.5 h-4 w-4 shrink-0 text-red"
-                        />
-                        {feature}
-                      </li>
-                    ))}
-                  </ul>
-
-                  <div className="mt-auto pt-5">
-                    <a
-                      href="#contact"
-                      className="group/link flex w-full items-center justify-center gap-3 border border-cream/35 px-5 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:border-red hover:bg-red active:scale-[0.97]"
-                    >
-                      Demander un devis
-                      <span
-                        aria-hidden="true"
-                        className="transition-transform duration-300 group-hover/link:translate-x-1"
-                      >
-                        →
-                      </span>
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </Reveal>
-          ))}
-        </div>
+        <ServicesDetailCarousel services={SERVICES_DETAIL} />
       </section>
     </SectionPhotoBg>
   );

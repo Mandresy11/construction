@@ -10,7 +10,7 @@ export function SiteHeader() {
   const pathname = usePathname();
 
   return (
-    <header className="flex items-center justify-between gap-6 px-6 py-4 md:px-10">
+    <header className="fixed inset-x-0 top-0 z-[2147483647] flex items-center justify-between gap-6 bg-ink/75 px-6 py-4 backdrop-blur-md md:px-10">
       {/* Pastille crème : le logo est en PNG transparent aux traits noirs,
           invisible directement sur fond sombre. */}
       <Link href="/" className="flex shrink-0 items-center justify-center rounded-md bg-cream p-1.5">
@@ -53,7 +53,7 @@ export function SiteHeader() {
 
       <Link
         href="/#contact"
-        className="group hidden shrink-0 items-center gap-3 bg-blue px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-ink active:scale-[0.97] lg:flex"
+        className="group hidden shrink-0 items-center gap-3 bg-blue-logo px-6 py-3 text-sm font-semibold uppercase tracking-wide text-ink transition hover:bg-ink hover:text-cream active:scale-[0.97] lg:flex"
       >
         Devis gratuit
         <span
