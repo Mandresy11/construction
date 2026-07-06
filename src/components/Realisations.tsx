@@ -68,6 +68,23 @@ const PROJECTS = [
   },
 ];
 
+function PortfolioCta({ className }: { className: string }) {
+  return (
+    <a
+      href="#contact"
+      className={`group items-center justify-center gap-3 bg-red px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-cream hover:text-ink active:scale-[0.97] ${className}`}
+    >
+      Démarrer votre projet
+      <span
+        aria-hidden="true"
+        className="transition-transform duration-300 group-hover:translate-x-1"
+      >
+        →
+      </span>
+    </a>
+  );
+}
+
 export function Realisations() {
   return (
     <section id="realisations" className="bg-ink">
@@ -86,21 +103,15 @@ export function Realisations() {
               Nos réalisations
             </h2>
           </div>
-          <a
-            href="#contact"
-            className="group inline-flex w-fit shrink-0 items-center gap-3 bg-red px-6 py-3.5 text-sm font-semibold uppercase tracking-wide text-cream transition hover:bg-cream hover:text-ink active:scale-[0.97]"
-          >
-            Démarrer votre projet
-            <span
-              aria-hidden="true"
-              className="transition-transform duration-300 group-hover:translate-x-1"
-            >
-              →
-            </span>
-          </a>
+          {/* En mobile, le CTA passe sous le carousel (voir plus bas) */}
+          <PortfolioCta className="hidden w-fit shrink-0 sm:inline-flex" />
         </div>
 
         <RealisationsCarousel projects={PROJECTS} />
+
+        <div className="mt-8 px-6 sm:hidden">
+          <PortfolioCta className="flex w-full" />
+        </div>
       </SectionPhotoBg>
     </section>
   );

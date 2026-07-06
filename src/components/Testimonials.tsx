@@ -1,9 +1,7 @@
 import { Reveal } from "./motion/Reveal";
 import { GoogleIcon } from "./icons/GoogleIcon";
-import { FilledStarIcon } from "./icons/FilledStarIcon";
 import { ReviewsCarousel } from "./ReviewsCarousel";
 
-const RATING = { average: "4,9", count: 47 };
 
 const REVIEWS = [
   {
@@ -50,33 +48,26 @@ const REVIEWS = [
   },
 ];
 
-function Stars({ className = "h-5 w-5" }: { className?: string }) {
-  return (
-    <div className="flex items-center gap-1 text-red" aria-hidden="true">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <FilledStarIcon key={i} className={className} />
-      ))}
-    </div>
-  );
-}
-
 export function Testimonials() {
   return (
-    <section id="avis-clients" className="bg-cream py-16 text-center lg:py-24">
-      <Reveal className="mx-auto max-w-2xl px-6 md:px-10">
+    <section
+      id="avis-clients"
+      className="relative overflow-hidden bg-cream py-16 text-center lg:py-24"
+    >
+      <span
+        aria-hidden="true"
+        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 select-none font-display text-[14rem] leading-none text-red/5 lg:text-[20rem]"
+      >
+        &ldquo;
+      </span>
+
+      <Reveal className="relative mx-auto max-w-2xl px-6 md:px-10">
         <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red">
           Avis clients
         </p>
         <h2 className="mt-5 font-display text-4xl uppercase leading-[0.95] tracking-tight text-ink lg:text-5xl">
-          Ce qu&apos;en disent nos clients
+          Ce qu&apos;en disent <span className="text-red">nos clients</span>
         </h2>
-
-        <div className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <Stars />
-          <span className="font-display text-2xl leading-none text-ink">{RATING.average}</span>
-          <span className="text-sm text-ink/50">sur {RATING.count} avis</span>
-          <GoogleIcon className="h-5 w-5" />
-        </div>
       </Reveal>
 
       <ReviewsCarousel reviews={REVIEWS} />
