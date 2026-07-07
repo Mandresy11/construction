@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Icon } from "./icons/Iconify";
 
 type NavItem = { label: string; href: string; active?: boolean };
 
@@ -82,25 +81,19 @@ export function MobileNav({ items, light = false }: { items: NavItem[]; light?: 
             </span>
           </Link>
 
-          <ul className="relative z-10 mt-10 flex flex-col gap-2 text-base font-semibold uppercase tracking-wide">
-            {items.map((item, index) => (
+          <ul className="relative z-10 mt-10 flex flex-col gap-1 text-base font-semibold uppercase tracking-wide">
+            {items.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
                   onClick={() => setOpen(false)}
                   className={
                     item.active
-                      ? "flex items-center justify-between rounded-md border border-blue/15 bg-white px-4 py-4 text-blue shadow-[0_10px_24px_rgba(20,20,15,0.08)]"
-                      : "flex items-center justify-between rounded-md border border-transparent px-4 py-4 text-ink/75 transition hover:border-ink/10 hover:bg-white/70 hover:text-ink"
+                      ? "flex items-center justify-between rounded-md border border-blue/15 bg-white px-4 py-3 text-blue shadow-[0_10px_24px_rgba(20,20,15,0.08)]"
+                      : "flex items-center justify-between rounded-md border border-transparent px-4 py-3 text-ink/75 transition hover:border-ink/10 hover:bg-white/70 hover:text-ink"
                   }
                 >
-                  <span className="flex min-w-0 items-center gap-3">
-                    <span
-                      aria-hidden="true"
-                      className={item.active ? "text-xs text-red" : "text-xs text-ink/35"}
-                    >
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
+                  <span className="flex min-w-0 items-center">
                     <span className="truncate">{item.label.toUpperCase()}</span>
                   </span>
                   <span
@@ -115,22 +108,6 @@ export function MobileNav({ items, light = false }: { items: NavItem[]; light?: 
           </ul>
 
           <div className="relative z-10 mt-auto pt-10">
-            <div className="mb-4 rounded-md border border-ink/10 bg-ink px-4 py-4 text-cream shadow-[0_18px_40px_rgba(20,20,15,0.18)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.24em] text-cream/45">
-                Contact direct
-              </p>
-              <a
-                href="tel:+262262000000"
-                className="mt-3 flex items-center gap-3 text-sm font-semibold"
-              >
-                <Icon icon="lucide:phone" className="h-4 w-4 text-red" />
-                02 62 00 00 00
-              </a>
-              <p className="mt-2 flex items-center gap-3 text-sm text-cream/65">
-                <Icon icon="lucide:map-pin" className="h-4 w-4 text-blue-logo" />
-                Toute La Réunion
-              </p>
-            </div>
             <Link
               href="/#contact"
               onClick={() => setOpen(false)}

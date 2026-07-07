@@ -1,5 +1,4 @@
 import { Reveal } from "./motion/Reveal";
-import { SectionPhotoBg } from "./SectionPhotoBg";
 import { ServicesDetailCarousel } from "./ServicesDetailCarousel";
 
 const SERVICES_DETAIL = [
@@ -87,12 +86,7 @@ const SERVICES_DETAIL = [
 
 export function ServicesDetail() {
   return (
-    <SectionPhotoBg
-      src="/image/chantier3.png"
-      alt=""
-      overlay="linear-gradient(180deg, rgba(241,239,230,0.86) 0%, rgba(241,239,230,0.95) 100%)"
-      className="px-6 py-12 text-ink md:px-10 lg:py-24"
-    >
+    <div className="bg-cream px-6 py-12 text-ink md:px-10 lg:py-24">
       <section id="services">
         <Reveal>
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red">
@@ -105,6 +99,6 @@ export function ServicesDetail() {
 
         <ServicesDetailCarousel services={SERVICES_DETAIL} />
       </section>
-    </SectionPhotoBg>
+    </div>
   );
 }

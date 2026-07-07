@@ -58,9 +58,27 @@ export function About() {
   return (
     <section
       id="a-propos"
-      className="relative z-20 overflow-visible bg-sand px-6 pt-16 pb-28 md:px-10 lg:pt-24 lg:pb-36"
+      className="relative isolate z-20 overflow-visible bg-sand px-6 pt-16 pb-28 md:px-10 lg:pt-24 lg:pb-36"
     >
-      <div className="mx-auto max-w-6xl">
+      <div className="absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
+        <Image
+          src="/image/back.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "50% 50%" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(241,239,230,0.9) 0%, rgba(241,239,230,0.96) 100%)",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-6xl">
         <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
           <Reveal className="flex flex-col justify-center">
             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red">

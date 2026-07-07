@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
-import { SectionPhotoBg } from "./SectionPhotoBg";
 import { ZoneCommunesToggle } from "./ZoneCommunesToggle";
 import { Icon } from "./icons/Iconify";
 
@@ -123,12 +122,7 @@ function ReunionMap({ className = "" }: { className?: string }) {
 
 export function ZoneIntervention() {
   return (
-    <SectionPhotoBg
-      src="/exemple/back5.png"
-      alt=""
-      overlay="linear-gradient(180deg, rgba(5,5,5,0.8) 0%, rgba(5,5,5,0.9) 100%)"
-      className="px-6 py-16 text-cream sm:pt-36 md:px-10 md:pt-40 lg:pt-44 lg:pb-24"
-    >
+    <section className="bg-ink px-6 py-16 text-cream sm:pt-36 md:px-10 md:pt-40 lg:pt-44 lg:pb-24">
       {/* 3fr/4fr : la colonne carte doit être plus large que la colonne texte
           pour que l'île rende à la même taille que dans la maquette exemple6
           (~32vw de large), impossible avec une grille 50/50. */}
@@ -171,6 +165,6 @@ export function ZoneIntervention() {
           <ReunionMap className="mt-14 sm:mt-16" />
         </Reveal>
       </div>
-    </SectionPhotoBg>
+    </section>
   );
 }

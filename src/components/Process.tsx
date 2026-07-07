@@ -1,5 +1,6 @@
 import { Reveal } from "./motion/Reveal";
 import { Icon } from "./icons/Iconify";
+import { SectionPhotoBg } from "./SectionPhotoBg";
 
 const STEPS = [
   {
@@ -48,8 +49,14 @@ function ArrowHead({ className }: { className?: string }) {
 
 export function Process() {
   return (
-    <section className="flex flex-col justify-center bg-white px-6 py-10 sm:min-h-[min(100vh,56.25rem)] md:px-10 lg:py-14">
-      <div className="mx-auto w-full max-w-6xl">
+    <SectionPhotoBg
+      src="/image/chantier5.png"
+      alt=""
+      overlay="linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(241,239,230,0.94) 100%)"
+      objectPosition="50% 45%"
+      className="flex flex-col justify-center px-6 py-10 text-ink sm:min-h-[min(100vh,56.25rem)] md:px-10 lg:py-14"
+    >
+      <section className="mx-auto w-full max-w-6xl">
         <Reveal className="text-center">
           <p className="text-sm font-semibold uppercase tracking-[0.2em] text-red">
             Notre méthode
@@ -180,7 +187,7 @@ export function Process() {
             </span>
           </a>
         </div>
-      </div>
-    </section>
+      </section>
+    </SectionPhotoBg>
   );
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Reveal } from "./motion/Reveal";
 import { GoogleIcon } from "./icons/GoogleIcon";
 import { ReviewsCarousel } from "./ReviewsCarousel";
@@ -52,11 +53,29 @@ export function Testimonials() {
   return (
     <section
       id="avis-clients"
-      className="relative overflow-hidden bg-cream py-16 text-center lg:py-24"
+      className="relative isolate overflow-hidden bg-cream py-16 text-center lg:py-24"
     >
+      <div className="absolute inset-0 z-0" aria-hidden="true">
+        <Image
+          src="/image/chantier2.png"
+          alt=""
+          fill
+          sizes="100vw"
+          className="object-cover"
+          style={{ objectPosition: "50% 45%" }}
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(241,239,230,0.9) 0%, rgba(241,239,230,0.96) 100%)",
+          }}
+        />
+      </div>
+
       <span
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 select-none font-display text-[14rem] leading-none text-red/5 lg:text-[20rem]"
+        className="pointer-events-none absolute left-1/2 top-0 z-0 -translate-x-1/2 select-none font-display text-[14rem] leading-none text-red/5 lg:text-[20rem]"
       >
         &ldquo;
       </span>
@@ -70,9 +89,11 @@ export function Testimonials() {
         </h2>
       </Reveal>
 
-      <ReviewsCarousel reviews={REVIEWS} />
+      <div className="relative z-10">
+        <ReviewsCarousel reviews={REVIEWS} />
+      </div>
 
-      <Reveal delay={0.2} className="mt-4 flex justify-center px-6 md:px-10">
+      <Reveal delay={0.2} className="relative z-10 mt-4 flex justify-center px-6 md:px-10">
         <a
           href="https://www.google.com/search?q=Nemrod%27s+Emergence+Construction+avis"
           target="_blank"

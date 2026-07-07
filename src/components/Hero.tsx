@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { StaggerGroup, StaggerItem } from "./motion/Stagger";
 
 const OFFERS = [
@@ -29,14 +28,18 @@ const OFFERS = [
 export function Hero() {
   return (
     <section className="relative isolate flex min-h-[640px] flex-col overflow-hidden text-cream lg:min-h-[820px]">
-      <Image
-        src="/image/background/background.png"
-        alt="Structure bois traditionnelle face au relief de La Réunion, à l'heure dorée"
-        fill
-        priority
-        sizes="100vw"
-        className="object-cover object-[60%_42%]"
-      />
+      <video
+        className="absolute inset-0 h-full w-full object-cover object-[60%_42%]"
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        poster="/image/background/background.png"
+        aria-hidden="true"
+      >
+        <source src="/hero.mp4" type="video/mp4" />
+      </video>
       <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/40 to-ink/5" />
       <div className="absolute inset-0 bg-gradient-to-b from-ink/55 via-transparent to-ink/70" />
 
