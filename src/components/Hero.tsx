@@ -27,7 +27,10 @@ const OFFERS = [
 
 export function Hero() {
   return (
-    <section className="relative isolate flex min-h-[640px] flex-col overflow-hidden text-cream lg:min-h-[820px]">
+    // min-h-svh en mobile : le hero remplit tout l'écran du téléphone
+    // (svh = hauteur stable, ne saute pas quand la barre du navigateur se
+    // replie). Le header étant fixed, il flotte par-dessus.
+    <section className="relative isolate flex min-h-svh flex-col overflow-hidden text-cream sm:min-h-[640px] lg:min-h-[820px]">
       <video
         className="absolute inset-0 h-full w-full object-cover object-[60%_42%]"
         autoPlay

@@ -6,7 +6,7 @@ export function CtaContact() {
   return (
     <section
       id="contact"
-      className="relative isolate overflow-hidden bg-red px-6 py-12 text-cream md:px-10 md:py-16 lg:py-24"
+      className="relative isolate overflow-hidden bg-ink px-6 py-12 text-cream md:px-10 md:py-16 lg:py-24"
     >
       <div className="absolute inset-0 z-0" aria-hidden="true">
         <Image
@@ -21,7 +21,7 @@ export function CtaContact() {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(90deg, rgba(159,35,31,0.9) 0%, rgba(159,35,31,0.82) 48%, rgba(20,20,15,0.72) 100%)",
+              "linear-gradient(90deg, rgba(20,20,15,0.86) 0%, rgba(20,20,15,0.68) 52%, rgba(20,20,15,0.34) 100%)",
           }}
         />
       </div>
@@ -47,7 +47,7 @@ export function CtaContact() {
       <Reveal className="relative z-20">
         <div className="flex flex-col items-start justify-between gap-6 lg:flex-row lg:items-end lg:gap-8">
           <div>
-            <p className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink">
+            <p className="inline-flex items-center gap-2 bg-cream px-3 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-ink shadow-[0_10px_24px_rgba(20,20,15,0.25)]">
               <Icon icon="lucide:clock-4" className="h-4 w-4" />
               Devis gratuit sous 48h
             </p>
