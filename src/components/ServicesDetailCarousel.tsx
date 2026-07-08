@@ -38,15 +38,17 @@ export function ServicesDetailCarousel({ services }: { services: Service[] }) {
 
   return (
     <div className="relative mt-10">
+      {/* Sur mobile, le track garde le padding gauche de la section et laisse
+          une partie de la carte suivante visible pour suggérer le swipe. */}
       <div
         ref={trackRef}
-        className="flex snap-x snap-mandatory gap-5 overflow-x-auto pb-3 scrollbar-none md:gap-6"
+        className="flex snap-x snap-mandatory gap-4 overflow-x-auto pb-3 pr-6 scrollbar-none md:-mx-10 md:gap-6 md:px-10"
       >
         {services.map((service, i) => (
           <Reveal
             key={service.n}
             delay={i * 0.06}
-            className="h-full w-[78vw] shrink-0 snap-start sm:w-[55vw] md:w-[38vw] xl:w-[26vw]"
+            className="h-full w-[76vw] shrink-0 snap-start sm:w-[55vw] md:w-[38vw] xl:w-[26vw]"
           >
             <div
               id={service.id}

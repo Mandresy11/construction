@@ -81,7 +81,7 @@ export function MobileNav({ items, light = false }: { items: NavItem[]; light?: 
             </span>
           </Link>
 
-          <ul className="relative z-10 mt-10 flex flex-col gap-1 text-base font-semibold uppercase tracking-wide">
+          <ul className="relative z-10 mt-8 flex flex-col gap-0 text-base font-semibold uppercase tracking-wide">
             {items.map((item) => (
               <li key={item.href}>
                 <Link
@@ -89,8 +89,8 @@ export function MobileNav({ items, light = false }: { items: NavItem[]; light?: 
                   onClick={() => setOpen(false)}
                   className={
                     item.active
-                      ? "flex items-center justify-between rounded-md border border-blue/15 bg-white px-4 py-3 text-blue shadow-[0_10px_24px_rgba(20,20,15,0.08)]"
-                      : "flex items-center justify-between rounded-md border border-transparent px-4 py-3 text-ink/75 transition hover:border-ink/10 hover:bg-white/70 hover:text-ink"
+                      ? "flex min-h-11 items-center justify-between rounded-md border border-blue/15 bg-white px-4 py-2 text-blue shadow-[0_10px_24px_rgba(20,20,15,0.08)]"
+                      : "flex min-h-11 items-center justify-between rounded-md border border-transparent px-4 py-2 text-ink/75 transition hover:border-ink/10 hover:bg-white/70 hover:text-ink"
                   }
                 >
                   <span className="flex min-w-0 items-center">
@@ -107,7 +107,7 @@ export function MobileNav({ items, light = false }: { items: NavItem[]; light?: 
             ))}
           </ul>
 
-          <div className="relative z-10 mt-auto pt-10">
+          <div className="relative z-10 mt-6">
             <Link
               href="/#contact"
               onClick={() => setOpen(false)}

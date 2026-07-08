@@ -90,9 +90,15 @@ export function Hero() {
               </a>
               <a
                 href="#realisations"
-                className="flex items-center border border-cream/50 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream transition hover:border-cream hover:bg-cream/10 active:scale-[0.97]"
+                className="group flex items-center gap-3 border border-blue-logo/70 bg-blue-logo/15 px-6 py-3 text-sm font-semibold uppercase tracking-wide text-cream transition hover:border-blue-logo hover:bg-blue-logo hover:text-ink active:scale-[0.97]"
               >
                 Voir nos réalisations
+                <span
+                  aria-hidden="true"
+                  className="transition-transform duration-300 group-hover:translate-x-1"
+                >
+                  →
+                </span>
               </a>
             </div>
           </StaggerItem>
