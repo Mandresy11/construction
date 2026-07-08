@@ -42,18 +42,18 @@ export function ServicesDetailCarousel({ services }: { services: Service[] }) {
           une partie de la carte suivante visible pour suggérer le swipe. */}
       <div
         ref={trackRef}
-        className="-mr-6 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-3 pr-6 scrollbar-none md:-mx-10 md:gap-6 md:px-10"
+        className="-mr-6 flex touch-pan-x snap-x snap-mandatory gap-3 overflow-x-auto overscroll-x-contain pb-3 pr-6 scrollbar-none md:mr-0 md:gap-6 md:pr-0"
       >
         {services.map((service, i) => (
           <Reveal
             key={service.n}
             delay={i * 0.06}
             y={0}
-            className="h-[25.5rem] w-[72vw] shrink-0 snap-start snap-always sm:h-[26rem] sm:w-[55vw] md:w-[38vw] xl:w-[26vw]"
+            className="h-[24.5rem] w-[72vw] shrink-0 snap-start snap-always sm:h-[25rem] sm:w-[55vw] md:h-auto md:w-[38vw] xl:w-[24vw]"
           >
             <div
               id={service.id}
-              className="group flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-blue-logo/70 bg-white shadow-[0_2px_20px_rgba(20,20,15,0.06)] transition-all duration-300 hover:border-red/45 hover:shadow-[0_10px_30px_rgba(20,20,15,0.10)] md:hover:-translate-y-1"
+              className="group flex h-full scroll-mt-24 flex-col overflow-hidden rounded-3xl border border-blue-logo/70 bg-white shadow-[0_2px_20px_rgba(20,20,15,0.06)] transition-all duration-300 hover:border-red/45 hover:shadow-[0_10px_30px_rgba(20,20,15,0.10)] md:h-auto md:hover:-translate-y-1"
             >
               <div className="relative h-36 shrink-0 overflow-hidden lg:h-40">
                 <Image

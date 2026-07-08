@@ -52,7 +52,10 @@ export function CtaContact() {
               Devis gratuit sous 48h
             </p>
             <h2 className="mt-4 max-w-2xl font-display text-4xl uppercase leading-[0.92] tracking-tight lg:mt-5 lg:text-6xl">
-              Prêt à construire <span className="text-ink">autrement&nbsp;?</span>
+              Prêt à construire{" "}
+              <span className="text-blue-logo drop-shadow-[0_3px_12px_rgba(0,0,0,0.45)]">
+                autrement&nbsp;?
+              </span>
             </h2>
             <p className="mt-3 max-w-lg text-sm leading-relaxed text-cream/85 lg:mt-4">
               Parlez-nous de votre projet : nous revenons vers vous sous 48h avec
